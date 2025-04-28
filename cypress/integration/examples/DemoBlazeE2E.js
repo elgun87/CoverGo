@@ -58,36 +58,48 @@ describe("Demoblaze Website Tests", function () {
     cy.get("#nameofuser").should("contain", this.config.newUsername);
   });
 
-  it("Test case 2 - should verify all categories", function () {
-    cy.visit(this.config.baseUrl);
-    this.config.category.forEach((cat) => {
-      cy.get(".list-group").contains(cat.name).click();
-      cy.get(".card-title").should("exist");
-    });
+  // Visit the base URL and verify each category loads products
+  cy.visit(this.config.baseUrl); // Open the home page
+  this.config.category.forEach((cat) => {
+    cy.get(".list-group") // Find the category list section
+      .contains(cat.name) // Find and click the category by name
+      .click();
+    cy.get(".card-title") // Verify at least one product card appears
+      .should("exist");
   });
 
+  // Test case 3 - Verify homepage loads correctly
   it("Test case 3 - should load the homepage", function () {
-    cy.visit(this.config.baseUrl);
-    cy.url().should("include", this.config.urlName);
-    cy.title().should("include", "STORE");
+    cy.visit(this.config.baseUrl); // Open the home page
+    cy.url().should("include", this.config.urlName); // Verify URL contains expected part
+    cy.title().should("include", "STORE"); // Verify page title contains 'STORE'
   });
 
+  // Test case 4 - Verify navigation to Phones category
   it("Test case 4 - should navigate to Phones category", function () {
-    cy.visit(this.config.baseUrl);
-    cy.contains("Phones").click();
-    cy.get(".card-title").should("exist");
+    cy.visit(this.config.baseUrl); // Open the home page
+    cy.contains("Phones") // Find and click the 'Phones' category
+      .click();
+    cy.get(".card-title") // Verify product cards exist
+      .should("exist");
   });
 
+  // Test case 5 - Verify navigation to Laptops category
   it("Test case 5 - should navigate to Laptops category", function () {
-    cy.visit(this.config.baseUrl);
-    cy.contains("Laptops").click();
-    cy.get(".card-title").should("exist");
+    cy.visit(this.config.baseUrl); // Open the home page
+    cy.contains("Laptops") // Find and click the 'Laptops' category
+      .click();
+    cy.get(".card-title") // Verify product cards exist
+      .should("exist");
   });
 
+  // Test case 6 - Verify navigation to Monitors category
   it("Test case 6 - should navigate to Monitors category", function () {
-    cy.visit(this.config.baseUrl);
-    cy.contains("Monitors").click();
-    cy.get(".card-title").should("exist");
+    cy.visit(this.config.baseUrl); // Open the home page
+    cy.contains("Monitors") // Find and click the 'Monitors' category
+      .click();
+    cy.get(".card-title") // Verify product cards exist
+      .should("exist");
   });
 
   it("Test case 7 - should verify each product card has title, price, and image", function () {
