@@ -59,13 +59,15 @@ describe("Demoblaze Website Tests", function () {
   });
 
   // Visit the base URL and verify each category loads products
-  cy.visit(this.config.baseUrl); // Open the home page
-  this.config.category.forEach((cat) => {
-    cy.get(".list-group") // Find the category list section
-      .contains(cat.name) // Find and click the category by name
-      .click();
-    cy.get(".card-title") // Verify at least one product card appears
-      .should("exist");
+  it("Test case 2 - should verify each category loads products", function () {
+    cy.visit(this.config.baseUrl); // Open the home page
+    this.config.category.forEach((cat) => {
+      cy.get(".list-group") // Find the category list section
+        .contains(cat.name) // Find and click the category by name
+        .click();
+      cy.get(".card-title") // Verify at least one product card appears
+        .should("exist");
+    });
   });
 
   // Test case 3 - Verify homepage loads correctly
