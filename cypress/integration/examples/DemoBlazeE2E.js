@@ -15,26 +15,26 @@ describe("Demoblaze Website Tests", function () {
     cy.slowDownEnd(); // <-- Reset slowdown after each test
   });
 
-  // it("should open Sign Up modal and sign up a new user", function () {
-  //   cy.visit(this.config.baseUrl);
-  //   // Click on Sign Up button
-  //   cy.get("#signin2").should("be.visible").click();
+  it("should open Sign Up modal and sign up a new user", function () {
+    cy.visit(this.config.baseUrl);
+    // Click on Sign Up button
+    cy.get("#signin2").should("be.visible").click();
 
-  //   // Ensure Modal appeared
-  //   cy.get("#signInModal").should("be.visible");
+    // Ensure Modal appeared
+    cy.get("#signInModal").should("be.visible");
 
-  //   // Fill username and password
-  //   cy.get("#sign-username").clear().type(this.config.newUsername);
-  //   cy.get("#sign-password").clear().type(this.config.newPassword);
+    // Fill username and password
+    cy.get("#sign-username").clear().type(this.config.newUsername);
+    cy.get("#sign-password").clear().type(this.config.newPassword);
 
-  //   // Submit form
-  //   cy.get("#signInModal .btn-primary").should("be.visible").click();
+    // Submit form
+    cy.get("#signInModal .btn-primary").should("be.visible").click();
 
-  //   // Verify success alert appears
-  //   cy.on("window:alert", (alertText) => {
-  //     expect(alert).to.eq.toString("Sign up successful.");
-  //   });
-  // });
+    // Verify success alert appears
+    cy.on("window:alert", (alertText) => {
+      expect(alert).to.eq.toString("Sign up successful.");
+    });
+  });
 
   it("Test case 1 - should open Login modal and log in with new user", function () {
     // Click on Login button
@@ -52,7 +52,7 @@ describe("Demoblaze Website Tests", function () {
     cy.get("#logInModal .btn-primary").should("be.visible").click();
 
     // Verify Logout button appears
-    cy.get("#logout2").should("be.visible");
+    cy.get("#logout2").should("be.visible and.exist");
 
     // Verify user lgged in successfully
     cy.get("#nameofuser").should("contain", this.config.newUsername);
