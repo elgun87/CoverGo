@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://demoblaze.com/",
+  "urlName": "demoblaze.com",
+  "newUsername": "coverGoUser123",
+  "newPassword": "coverGoPassword123",
+  "category": [
+    {
+      "name": "Laptops",
+      "categoryUrl": "laptops"
+    },
+    {
+      "name": "Monitors",
+      "categoryUrl": "monitors"
+    },
+    {
+      "name": "Phones",
+      "categoryUrl": "phones"
+    }
+  ],
+  "user": {
+    "name": "John",
+    "country": "USA",
+    "city": "New York",
+    "creditCard": 1234567890123456,
+    "month": "12",
+    "year": "2025"
+  }
+}
